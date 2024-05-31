@@ -16,7 +16,7 @@
 
 ## Поддержка
 
-- В настоящее время поддерживается на браузере FireFox.
+<img src="https://img.shields.io/badge/FireFox-F79B1F?logo=FireFox&logoColor=e85d04&color=80ed99" alt="FireFox" /> <img src="https://img.shields.io/badge/Chrome-F79B1F?logo=Google&logoColor=0077b6&color=6a040f" alt="Chrome" /> <img src="https://img.shields.io/badge/Opera-F79B1F?logo=Opera&logoColor=ff8fab&color=6a040f" alt="Opera" /> <img src="https://img.shields.io/badge/Edge-F79B1F?logo=Microsoft&logoColor=0077b6&color=6a040f" alt="Edge" /> 
 
 ## Использование
 
