@@ -1,0 +1,18 @@
+.btn {
+    padding: 10px 20px;
+    background-color: #80ed99;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 2%;
+  }
+  
+  .btn:hover {
+    background-color: #bcffcb;
+  }
+  
+
+  #test_info{
+    margin-top: 1%;
+  }
