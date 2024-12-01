@@ -1,14 +1,50 @@
+
+
+function get_gpt_answer(question, num) {
+  const apiUrl = 'http://127.0.0.1:5000/api/chatgpt';
+  const data = {
+      question: question,
+  };
+
+  fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    //console.log(data)
+      if (data.error) {
+        console.error(data.error)
+        answer_msg = `Ошибка: ${error}`
+        return
+      }
+      answer_msg = `Model: ${data.model})<br>${data.answer}`
+      
+      const gptAnswerElement = document.getElementById(`gpt-answer-${num}`);
+      if (gptAnswerElement) {
+        gptAnswerElement.innerHTML = answer_msg;
+      }
+  }).catch(error =>{
+    const gptAnswerElement = document.getElementById(`gpt-answer-${num}`);
+    if (gptAnswerElement) {
+      gptAnswerElement.innerHTML = "Ошибка загрузки ответа.";
+    }
+    console.log(error)
+  })
+
+
+}
+
 function show_question(num, question) {
   const questionTypeText = question.type === 'multiquiz' ? "Несколько вариантов ответа" : "Один вариант ответа";
   let htmlContent = `<div style="margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px; padding: 15px;">`;
 
   if (question.content) {
-      let gptAnswer;
-      try {
-          gptAnswer = "В текущей версии аддона чат гпт не реализован.";
-      } catch (e) {
-          gptAnswer = "Не удалось получить ответ";
-      }
+      get_gpt_answer(question.content, num);
+
       if (question.image) {
         htmlContent += `<div style="margin-bottom: 10px;"><img src="${question.image}" alt="Изображение вопроса" style="max-width: 100%; height: auto;"></div>`;
       }    
@@ -22,7 +58,7 @@ function show_question(num, question) {
           }
           htmlContent += `</li>`;
       }
-      htmlContent += `</ul><p style="margin-top: 10px;"><strong>Ответ чата ГПТ:</strong><br>${gptAnswer}</p></div><div style="margin-top: 10px;"><a href="https://www.google.com/search?q=${encodeURIComponent(question.content)}" target="_blank" style="text-decoration: none;"><button style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Поиск в Google</button></a></div></div>`;
+      htmlContent += `</ul><p style="margin-top: 10px;"><strong>Ответ чата ГПТ:</strong><br><div id="gpt-answer-${num}">Загрузка...</div></p></div><div style="margin-top: 10px;"><a href="https://www.google.com/search?q=${encodeURIComponent(question.content)}" target="_blank" style="text-decoration: none;"><button style="background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Поиск в Google</button></a></div></div>`;
   } else {
       htmlContent += `<div><h3 style="color: grey;">${num}. Текст пуст.</h3></div></div>`;
   }

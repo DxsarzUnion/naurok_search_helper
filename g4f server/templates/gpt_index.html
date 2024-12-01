@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT API</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1f1f1f;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            text-align: center;
+            color: #4caf50;
+        }
+        .endpoint {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 5px solid #0d0e36;
+            background-color: #2a2a2a;
+            border-radius: 5px;
+        }
+        .endpoint h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #f1f1f1;
+        }
+        .endpoint p {
+            margin: 10px 0;
+        }
+        .code {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+            color: #f1f1f1;
+        }
+        .code span {
+            color: #4caf50;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #777;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover {
+            color: white
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <h1>ChatGPT API Documentation</h1>
+        
+        <div class="endpoint">
+            <h2>/api/chatgpt</h2>
+            <p><strong>Method:</strong> POST</p>
+            <p>Gets an answer from ChatGPT based on input data.</p>
+            <div class="code">
+                <span>Request:</span><br>
+                POST /api/chatgpt<br>
+                Body: 
+                <pre>
+{
+  "question": "Hello",
+}
+                </pre>
+                <br>
+                <span>Response:</span><br>
+            <pre>
+{
+    "answer": "Hello, how can I assist you?",
+    "model": "gpt-3.5-turbo",
+    "provider": "OpenAI"
+}
+            </pre>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; <a href="https://t.me/DxsarzUnion">2024 DXsarzUnion API | Built with ❤ </a>
+    </footer>
+</body>
+</html>

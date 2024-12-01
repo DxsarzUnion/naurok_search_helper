@@ -3,7 +3,7 @@
   "name": "Naurok helper",
   "version": "1.2",
   "description": "Помощник прохождения тестов на сайте naurok.ua",
-  "permissions": ["activeTab", "tabs", "notifications"],
+  "permissions": ["activeTab", "tabs", "notifications", "http://127.0.0.1:5000"],
   "background": {
     "scripts": ["background.js"],
     "type": "module",
